@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
@@ -99,3 +100,32 @@ module.exports = mongoose.model('Product',productSchema);
 // }
 
 // module.exports = Product;
+=======
+const Sequelize = require('sequelize');
+
+const sequelize = require('../util/database')
+
+const Product = sequelize.define('product',{
+  id:{
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    allowNull: false,
+    primaryKey: true
+  },
+  title:Sequelize.STRING,
+  price:{
+    type: Sequelize.DOUBLE,
+    allowNull: false
+  },
+  imageUrl:{
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  description:{
+    type: Sequelize.STRING,
+    allowNull: false
+  }
+})
+
+module.exports = Product;
+>>>>>>> 1c8fab9cf4a02c0e2d795794443176d8f2627ae1
