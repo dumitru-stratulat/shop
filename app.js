@@ -1,7 +1,6 @@
 const path = require('path');
 
 const express = require('express');
-<<<<<<< HEAD
 
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -22,22 +21,12 @@ const store = new MongoDBStore({
 });
 
 const csrfProtection = csrf();
-=======
-const bodyParser = require('body-parser');
-
-const errorController = require('./controllers/error');
-const sequelize = require('./util/database')
-
-
-const app = express();
->>>>>>> 1c8fab9cf4a02c0e2d795794443176d8f2627ae1
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
-<<<<<<< HEAD
 const authRoutes = require('./routes/auth');
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -85,23 +74,3 @@ mongoose
 // mongoConnect(()=>{
 // app.listen(3000)
 // })
-=======
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/admin', adminRoutes);
-app.use(shopRoutes);
-
-app.use(errorController.get404);
-
-sequelize.sync().then(result => {
-    console.log(result)
-    app.listen(3001)
-})
-.catch(err => {
-    console.log(err)
-})
-
-// app.listen(3001);
->>>>>>> 1c8fab9cf4a02c0e2d795794443176d8f2627ae1
