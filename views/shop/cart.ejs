@@ -1,10 +1,25 @@
 <%- include('../includes/head.ejs') %>
+<<<<<<< HEAD
+    <link rel="stylesheet" href="/css/cart.css">
+=======
+>>>>>>> 1c8fab9cf4a02c0e2d795794443176d8f2627ae1
     </head>
 
     <body>
         <%- include('../includes/navigation.ejs') %>
         <main>
             <% if (products.length > 0) { %>
+<<<<<<< HEAD
+                <ul class="cart__item-list">
+                    <% products.forEach(p => { %>
+                        <li class="cart__item">
+                            <h1><%= p.productId.title %></h1>
+                            <h2>Quantity: <%= p.quantity %></h2>
+                            <form action="/cart-delete-item" method="POST">
+                                <input type="hidden" value="<%= p.productId._id %>" name="productId">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <button class="btn danger" type="submit">Delete</button>
+=======
                 <ul>
                     <% products.forEach(p => { %>
                         <li>
@@ -12,10 +27,22 @@
                             <form action="/cart-delete-item" method="POST">
                                 <input type="hidden" value="<%= p.productData.id %>" name="productId">
                                 <button class="btn" type="submit">Delete</button>
+>>>>>>> 1c8fab9cf4a02c0e2d795794443176d8f2627ae1
                             </form>
                         </li>
                     <% }) %>
                 </ul>
+<<<<<<< HEAD
+                <hr>
+                <div class="centered">
+                    <form action="/create-order" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button type="submit" class="btn">Order Now!</button>
+                    </form>
+                </div>
+                
+=======
+>>>>>>> 1c8fab9cf4a02c0e2d795794443176d8f2627ae1
             <% } else { %>
                 <h1>No Products in Cart!</h1>
             <% } %>
